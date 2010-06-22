@@ -1,0 +1,24 @@
+Testing issue with wrq:get_cookie_value/2 truncating after forward slashes
+
+Cookie value will be truncated if it is not quoted as described in RFC 2109:
+http://www.w3.org/Protocols/rfc2109/rfc2109
+
+
+To see the issue in action:
+1. Start the test app:
+./start.sh
+
+2. From another prompt issue a curl request with a cookie value (not quoted):
+curl -b test="hello/world" http://localhost:8000
+
+3. Notice only "hello" is returned for the value
+
+
+**Repeat with quoting**
+
+
+4. From another prompt issue a curl request with a cookie value (quoted):
+curl -b test="\"hello/world\"" http://localhost:8000
+
+5. Notice "hello/world" is returned for the value
+
