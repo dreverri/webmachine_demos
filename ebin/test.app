@@ -7,7 +7,7 @@
              test,
              test_app,
              test_sup,
-             test_resource
+             cookie_resource
             ]},
   {registered, []},
   {applications, [
