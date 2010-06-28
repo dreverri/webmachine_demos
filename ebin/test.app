@@ -7,7 +7,11 @@
              test,
              test_app,
              test_sup,
-             cookie_resource
+             cookie_resource,
+             static_resource,
+             mustache,
+             mustache_resource,
+             mustache_template
             ]},
   {registered, []},
   {applications, [

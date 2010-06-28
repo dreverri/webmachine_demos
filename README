@@ -1,24 +1,29 @@
-Testing issue with wrq:get_cookie_value/2 truncating after forward slashes
+Random Webmachine resources:
 
-Cookie value will be truncated if it is not quoted as described in RFC 2109:
-http://www.w3.org/Protocols/rfc2109/rfc2109
-
-
-To see the issue in action:
-1. Start the test app:
+To start:
 ./start.sh
 
-2. From another prompt issue a curl request with a cookie value (not quoted):
-curl -b test="hello/world" http://localhost:8000
+Resources available:
+http://localhost:8000/cookie
+http://localhost:8000/static
+http://localhost:8000/mustache
 
-3. Notice only "hello" is returned for the value
+About the resources:
 
+Cookies (cookie_resource.erl):
+Prints out all cookies and their values
 
-**Repeat with quoting**
-
-
-4. From another prompt issue a curl request with a cookie value (quoted):
+Example:
 curl -b test="\"hello/world\"" http://localhost:8000
 
-5. Notice "hello/world" is returned for the value
 
+Static (static_resource.erl):
+Reads and outputs "priv/www/static.html" 
+
+
+Mustache (mustache_resource.erl):
+Renders output based on a mustache template.
+a. View - src/mustache_template.erl
+b. Template - ebin/mustache_template.mustache
+
+More about mustache: http://github.com/mojombo/mustache.erl
